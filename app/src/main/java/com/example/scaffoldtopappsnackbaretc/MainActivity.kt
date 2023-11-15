@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    ScaffoldEjemplo()
                 }
             }
         }
@@ -44,11 +44,3 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
-
-Componentes en Jetpack Compose
-Scaffold
-TopAppBar
-Snackbar
-BottomBar
-FloatingActionButton
-ModalDrawer
