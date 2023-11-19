@@ -43,26 +43,8 @@ fun PrintModalDrawer() {
     val scope = rememberCoroutineScope()
 
 
-    ModalNavigationDrawer(
-        drawerState = drawerState,
-        gesturesEnabled = false,
-        drawerContent = {
-            ModalDrawerSheet {
-                NavigationDrawerItem(
-                    label = { Text(text = "Drawer Item") },
-                    selected = false,
-                    onClick = { scope.launch { drawerState.close() } }
-                )
-                NavigationDrawerItem(
-                    label = { Text(text = "Drawer Item") },
-                    selected = false,
-                    onClick = {scope.launch { drawerState.close() } }
-                )
-            }
-        }
 
-    )
-    {
+    ModalDrawer(drawerState = drawerState) {
         Scaffold(
             snackbarHost = {
                 SnackbarHost(hostState = snackbarHostState)
@@ -93,11 +75,35 @@ fun PrintModalDrawer() {
             ) { /* ... */ }
         }// Screen content
     }
-
-
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ModalDrawer(drawerState: DrawerState, scaffold: @Composable () -> Unit) {
+    val scope = rememberCoroutineScope()
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        gesturesEnabled = false,
+        drawerContent = {
+            ModalDrawerSheet {
+                NavigationDrawerItem(
+                    label = { Text(text = "Drawer Item") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } }
+                )
+                NavigationDrawerItem(
+                    label = { Text(text = "Drawer Item") },
+                    selected = false,
+                    onClick = { scope.launch { drawerState.close() } }
+                )
+            }
+        }
+
+    ) {
+        scaffold()
+    }
+}
 
 
 @Composable
