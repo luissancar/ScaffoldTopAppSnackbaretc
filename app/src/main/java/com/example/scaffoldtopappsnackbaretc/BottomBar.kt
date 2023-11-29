@@ -93,7 +93,8 @@ fun NavigationBar01() {
     var index by remember{
         mutableStateOf(1)
     }
-    NavigationBar(containerColor = Color.Red, contentColor = Color.White) {
+    NavigationBar(containerColor = Color.Red,
+        contentColor = Color.White) {
         NavigationBarItem(
             selected = index==1,
             onClick = { index=1 },

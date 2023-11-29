@@ -25,7 +25,8 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PrintSnackbar() {
-    val snackbarHostState = remember { SnackbarHostState() }
+    val snackbarHostState =
+        remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
     Scaffold(
         snackbarHost = {

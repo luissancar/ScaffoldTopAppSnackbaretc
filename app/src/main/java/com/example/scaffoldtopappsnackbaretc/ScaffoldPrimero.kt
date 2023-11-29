@@ -18,7 +18,8 @@ import androidx.compose.ui.graphics.Color
 fun ScaffoldEjemplo(){
     Scaffold(/* ... */) { contentPadding ->
         // Screen content
-        Box(modifier = Modifier.padding(contentPadding).height(50.dp).fillMaxWidth().background(
+        Box(modifier = Modifier.padding(contentPadding)
+            .height(50.dp).fillMaxWidth().background(
             Color.Blue)) { /* ... */ }
     }
 
